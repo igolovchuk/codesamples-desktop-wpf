@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="Tracker_Software.Views.CreateClerkUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            d:DesignWidth="300"
+             DataContext="{Binding CreateClerk, Source={StaticResource Locator}}" >
+    <ScrollViewer>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="GrdCustomer" Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox HorizontalAlignment="Stretch"  x:Name="TxtUserName" Margin="4" Grid.Row="0" Grid.Column="2" TextWrapping="Wrap" Text="{Binding NewClerk.UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Validation.Error="Validation_Error" VerticalAlignment="Center" />
+            <TextBox HorizontalAlignment="Stretch"  x:Name="TxtFirstName" Margin="4" Grid.Row="1" Grid.Column="2" TextWrapping="Wrap" Text="{Binding NewClerk.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Validation.Error="Validation_Error" VerticalAlignment="Center" />
+            <TextBox HorizontalAlignment="Stretch" Margin="4" Grid.Row="2" Grid.Column="2" TextWrapping="Wrap" Text="{Binding NewClerk.MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" />
+            <TextBox HorizontalAlignment="Stretch" x:Name="TxtLastName"  Margin="4" Grid.Row="3" Grid.Column="2" TextWrapping="Wrap" Text="{Binding NewClerk.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Validation.Error="Validation_Error" VerticalAlignment="Center"  />
+            <TextBox HorizontalAlignment="Stretch" x:Name="TxtPassword"  Margin="4" Grid.Row="4" Grid.Column="2" TextWrapping="Wrap" Text="{Binding NewClerk.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Validation.Error="Validation_Error" VerticalAlignment="Center"  />
+            <TextBox HorizontalAlignment="Stretch" x:Name="TxtConfirmPassword"  Margin="4" Grid.Row="5" Grid.Column="2" TextWrapping="Wrap" Text="{Binding NewClerk.ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Validation.Error="Validation_Error" VerticalAlignment="Center"  />
+
+
+            <Label Content="UserName" HorizontalAlignment="Right" Margin="4" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"/>
+            <Label Content="First Name" HorizontalAlignment="Right" Margin="4" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+            <Label Content="Middle Name" HorizontalAlignment="Right" Margin="4" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
+            <Label Content="Last Name" HorizontalAlignment="Right" Margin="4" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
+            <Label Content="Password" HorizontalAlignment="Right" Margin="4" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"/>
+            <Label Content="Confirm Password" HorizontalAlignment="Right" Margin="4" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"/>
+        </Grid>
+
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Create Clerk" VerticalAlignment="Center" Margin="4" FontWeight="Bold"/>
+
+
+        <StackPanel Margin="4" VerticalAlignment="Center"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
+            <Button Grid.Row="2" Margin="4" Padding="15,0,15,0" Width="75"
+				Command="{Binding SaveClerkCommand}" Content="Save" />
+
+            <Button Grid.Row="2" Margin="4"  Padding="15,0,15,0" Width="75"
+				Command="{Binding CancelSavingCommand}" Content="Cancel"/>
+        </StackPanel>
+    </Grid>
+        </ScrollViewer>
+</UserControl>
